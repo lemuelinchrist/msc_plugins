@@ -1,5 +1,8 @@
 # Chord Identifier Plugin for Musescore
 
+This is a version of the Chord Identifer plugin ported to MuseScore 3. All
+credits for the plugin itself go to its original authors.
+
 <h3>Chord Identifier Plugin  for Musescore</h3>
 
 - Shows chords used in classical music: triads (major, minor, diminished) and seventh chords (MM7, m7, Mm7, dim7).

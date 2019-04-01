@@ -18,7 +18,7 @@
 //  Thank you :-)
 //=============================================================================
 
-import MuseScore 1.0
+import MuseScore 3.0
 import QtQuick 2.0
 
 import QtQuick.Layouts 1.0
@@ -39,7 +39,7 @@ MuseScore {
     id: chordDialog
     
     onRun: {
-      if (typeof curScore === 'undefined') {
+      if (!curScore) {
         console.log("Quitting: no score");
         Qt.quit();
       }
@@ -428,7 +428,7 @@ MuseScore {
             //var numerator = 3;
             //var denominator = 4;
             //var ts = newElement(Element.TEXT);
-            //ts.setSig(numerator, denominator);
+            //ts.timesig = fraction(numerator, denominator);
 
             score.addText("title", oldScore.title);
             score.addText("subtitle", oldScore.subtitle);
@@ -452,7 +452,7 @@ MuseScore {
               var text = newElement(Element.STAFF_TEXT);
               var str=chordstr[i];
 
-              text.pos.y = 5;
+              text.offsetY = 5;
               console.log("chordstr:"+chordstr[i]+".");
               if(chordstr[i]=="|"){
                   score.appendMeasures(1);
@@ -475,9 +475,9 @@ MuseScore {
                       text.text=str;
                   }
 
-                  text.pos.x = offset;
+                  text.offsetX = offset;
                   cursor.add(text);
-                  //console.log("text.pos.x "+text.pos.x+" "+str);
+                  //console.log("text.offsetX "+text.pos.x+" "+str);
                    offset+=5;
               }
 
@@ -570,8 +570,8 @@ MuseScore {
                                     if (chordName !== ''  &&  chordName!=prev_chordName){
                                         var staffText = newElement(Element.STAFF_TEXT);
                                         staffText.text = chordName;
-                                        staffText.pos.x = 0;
-                                        staffText.pos.y = -2;
+                                        staffText.offsetX = 0;
+                                        staffText.offsetY = -2;
                                         cursor.add(staffText);
                                     }
 
